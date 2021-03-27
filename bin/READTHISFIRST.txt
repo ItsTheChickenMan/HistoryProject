@@ -1,0 +1,17 @@
+Dear Mr. Bedard,
+
+This is an interactive virtual museum experience packaged into an exe file.  You are placed into a virtual museum and encouraged to walk around and explore the various exhibits.  There are a few things to be aware of before you run the application:
+1: If you're using Windows, it will tell you that the exe is from an unknown developer and is untrusted.  This is because I don't have an official certificate, which cost upward of $400, and I promise that I am not trying to give you a virus.  Hopefully this is understandable.  It will also trigger the firewall when you first open it and ask for permission to connect to private networks.  This is because the engine I'm using was originally designed to connect to a remote server.  I can promise you that this application does not connect to a remote server, and you can just hit cancel on the firewall warning and it will still run properly.
+2: While I've done my best to make sure that this can run on any computer, there's still a chance that it might not work.  In that case, I can send you a video to substitute as my project.
+3: The controls are:
+
+WASD: forward, left, backward, right; respectively
+E (while facing an exhibit): Play audio for exhibit, if there is any
+Mouse: look around
+ESC: unlock the mouse
+
+And finally, just double click HistoryProject.exe to run, and the big x to exit at any time.
+
+Regards,
+
+Phoenix Dalla Costa

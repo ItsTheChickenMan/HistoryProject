@@ -1,2 +1,3 @@
 # HistoryProject
-History Project.  Stupidest idea ever
+
+A virtual museum made using the Poor Engine for a history project.
