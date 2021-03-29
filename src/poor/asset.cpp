@@ -41,8 +41,9 @@ Texture_Info *getAssetByPath(char* path){
 // gets an asset by integer id, appointed by user
 Texture_Info *getAssetById(int id){
 	for(std::vector<Texture_Info>::iterator i = loadedAssets.begin(); i != loadedAssets.end(); i++){
-		if(id == (*i).id)
+ 		if(id == (*i).id){
 			return &(*i);
+		}
 	}
 	
 	return &nullAsset;

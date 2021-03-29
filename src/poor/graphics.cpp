@@ -107,7 +107,7 @@ Render_Data createRenderData(char* texturePath){
 	}
 
 	
-	init_render_data(&data, *texture, (Mipmap_Info){GL_REPEAT, GL_REPEAT, GL_LINEAR, GL_LINEAR}, cube, sizeof(cube));
+	init_render_data(&data, texture, (Mipmap_Info){GL_REPEAT, GL_REPEAT, GL_LINEAR, GL_LINEAR}, cube, sizeof(cube));
 	
 	return data;
 }
@@ -126,7 +126,7 @@ Render_Data createRenderData(Texture_Info *texture){
 		}
 	}
 	
-	init_render_data(&data, *texture, (Mipmap_Info){GL_REPEAT, GL_REPEAT, GL_NEAREST, GL_NEAREST}, cube, sizeof(cube));
+	init_render_data(&data, texture, (Mipmap_Info){GL_REPEAT, GL_REPEAT, GL_LINEAR, GL_LINEAR}, cube, sizeof(cube));
 	
 	return data;
 }
@@ -141,7 +141,7 @@ void graphicsRenderEntities(){
 
 
 void init_render_data(Render_Data* render_data, 
-                      Texture_Info texture_info, 
+                      Texture_Info *texture_info, 
                       Mipmap_Info mipmap_info, 
                       float* vertex_data, 
                       u32 vertex_data_size)
@@ -165,13 +165,13 @@ void init_render_data(Render_Data* render_data,
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     }
     
-    if (texture_info.channel_count == 3)
+    if (texture_info->channel_count == 3)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texture_info.width, texture_info.height, 0, GL_RGB, GL_UNSIGNED_BYTE, texture_info.data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, texture_info->width, texture_info->height, 0, GL_RGB, GL_UNSIGNED_BYTE, texture_info->data);
     }
-    else if (texture_info.channel_count == 4)
+    else if (texture_info->channel_count == 4)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture_info.width, texture_info.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_info.data);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texture_info->width, texture_info->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texture_info->data);
     }
     else
         printf("Texture Channel count invalid.\n");
@@ -183,8 +183,6 @@ void init_render_data(Render_Data* render_data,
     
     glGenVertexArrays(1, &render_data->vao);
     glBindVertexArray(render_data->vao);
-    
-    
     
     glGenBuffers(1, &render_data->vbo);
     glBindBuffer(GL_ARRAY_BUFFER, render_data->vbo);

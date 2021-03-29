@@ -88,7 +88,7 @@ void graphicsRenderEntities();
 // end of phoenix's stuff
 
 void init_render_data(Render_Data* render_data, 
-                      Texture_Info texture_info,
+                      Texture_Info *texture_info,
                       Mipmap_Info mipmap_info,  
                       float* vertex_data,       
                       u32 vertex_data_size);    

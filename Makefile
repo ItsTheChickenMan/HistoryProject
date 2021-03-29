@@ -7,7 +7,7 @@ NAME=HistoryProject
 CC=g++
 
 # set this to console if you want the console window, or windows if not
-SUBSYSTEM=console
+SUBSYSTEM=museum
 # set this to -static-libgcc -static-libstdc++ if you want to statically link std (for release)
 STATICSTD=
 # set this to -g for debugging info (when profiling)
@@ -16,7 +16,6 @@ DEBUG=
 # directories
 INSTALL_DIR=./bin/
 INCLUDE_DIR=./include/
-FT_INCLUDE_DIR=./freetype/
 LIB_DIR=./lib/
 SRC_DIR=./src/
 

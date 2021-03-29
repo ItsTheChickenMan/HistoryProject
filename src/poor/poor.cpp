@@ -70,7 +70,7 @@ void poorUpdate(std::chrono::high_resolution_clock::time_point start){
 	
 	// check if we need to quiet down music
 	if( getActiveSounds()->entities.size() > 0){
-		getActiveMusic()->setVolume(10.0f);
+		getActiveMusic()->setVolume(5.0f);
 	} else {
 		getActiveMusic()->setVolume(50.0f);
 	}
@@ -95,10 +95,10 @@ void poorUpdate(std::chrono::high_resolution_clock::time_point start){
 void poorEnd(){
 	networkingDisconnect(); //leave the server
 	graphicsEnd(); // close up graphics
-	terminateAllSoundAssets(); // destroy all sound assets
-	terminateAssets(); // destroy textures
 	audioStopMusic(); // stop da music
 	audioStopAllSounds(); // stop da sound
+	terminateAllSoundAssets(); // destroy all sound assets
+	terminateAssets(); // destroy textures
 }
 
 void poorHandleRequest(NetworkingUpdateRequest *request){
@@ -116,7 +116,7 @@ void poorHandleRequest(NetworkingUpdateRequest *request){
 			entity->entityType = PHYSICS_ENTITY_DYNAMIC;
 			entity->friction = 0.15;
 		}
-		
+	
 		// don't push a render_data if it's an id request because we don't want to render ourselves
 		//if(request->update_type != NETWORKING_ID) // kind of a quick-fix, but because we don't need other entities for this project just don't render entities if we're not using serverside movement
 			//pushEntity<Render_Data>(getRenderManager(), createRenderData(getAssetByName("default")), entity->id);
@@ -211,10 +211,10 @@ void poorRenderMap(Map map){
 		transform.position = toGlmVec3( (*i).position );
 		transform.rotation = toGlmVec3( rotation );
 		transform.scale = toGlmVec3( (*i).boundingBox );
-
+		
 		update_render_data( pushEntity<Render_Data>(getRenderManager(), createRenderData( getAssetById((*i).texture) ), -1), transform);
 	}
-	
+		
 	// push point lights
 	for(std::vector<MapObject>::iterator i = map.lights.begin(); i != map.lights.end(); i++){
 		pushLight(toGlmVec3((*i).position));

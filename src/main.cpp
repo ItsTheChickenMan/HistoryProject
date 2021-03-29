@@ -8,8 +8,8 @@
 
 int main(int argc, char *argv[]){
 	// for speed, I'm defining painting locations here, but it would be better to have this built into the map
-	Vector3 paintingSpots[] = {createVector3(15, 2.5, 5), createVector3(15, 2.5, -5), createVector3(1.66667, 2.5, 5), createVector3(1.66667, 2.5, -5), createVector3(-11.66667,2.5,4.97), createVector3(11.66667,2.5,4.97), createVector3(-25,2.5,4.97), createVector3(-29.97,2.5,0), createVector3(-29.97,2.5,-13.33333), createVector3(-20.03,2.5,-13.33333), createVector3(-29.97,2.5,-26.66667), createVector3(-20.03,2.5,-26.66667), createVector3(-29.97,2.5,-40), createVector3(-25,2.5,-44.97), createVector3(-11.66667,2.5,-35.03), createVector3(-11.66667,2.5,-44.97), createVector3(1.66667,2.5,-35.03), createVector3(1.66667,2.5,-44.97), createVector3(15,2.5,-35.03), createVector3(15,2.5,-44.97)};
-	char* lines[] = {"longtelegramtalk", "longtelegramtalk", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem"};
+	Vector3 paintingSpots[] = {createVector3(15, 2.5, 5), createVector3(15, 2.5, -5), createVector3(1.66667, 2.5, 5), createVector3(1.66667, 2.5, -5), createVector3(-11.66667,2.5,-4.97), createVector3(-11.66667,2.5,4.97), createVector3(-25,2.5,4.97), createVector3(-29.97,2.5,0), createVector3(-29.97,2.5,-13.33333), createVector3(-20.03,2.5,-13.33333), createVector3(-29.97,2.5,-26.66667), createVector3(-20.03,2.5,-26.66667), createVector3(-29.97,2.5,-40), createVector3(-25,2.5,-44.97), createVector3(-11.66667,2.5,-35.03), createVector3(-11.66667,2.5,-44.97), createVector3(1.66667,2.5,-35.03), createVector3(1.66667,2.5,-44.97), createVector3(15,2.5,-35.03), createVector3(15,2.5,-44.97)};
+	char* lines[] = {"longtelegramtalk", "trumandoctrinetalk", "marshallplantalk", "communistchinatalk", "koreanwartalk", "secondredscaretalk", "mccarthytalk", "ahem", "eisenhowertalk", "checkerstalk", "dullestalk", "domesticpoliciestalk", "election1960talk", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem", "ahem"};
 	
 	networkingSetSendPort(22620);
 	networkingSetListenPort(22620); // set these so we can send requests to ourselves
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]){
 	printf("loaded\n");
 	
 	// load up sounds (in soundPaths, index 0 is path, 1 is name
-	const char* soundPaths[] = {"./res/sounds/ahem.ogg", "ahem", "./res/sounds/leftfootstep.ogg", "leftfootstep", "./res/sounds/rightfootstep.ogg", "rightfootstep", "./res/sounds/longtelegramtalk.ogg", "longtelegramtalk", "./res/sounds/welcometalk.ogg", "welcometalk", "./res/sounds/berlinwalltalk.ogg", "berlinwalltalk"};
+	const char* soundPaths[] = {"./res/sounds/election1960talk.ogg", "election1960talk", "./res/sounds/domesticpoliciestalk.ogg", "domesticpoliciestalk", "./res/sounds/dullestalk.ogg", "dullestalk", "./res/sounds/checkerstalk.ogg", "checkerstalk", "./res/sounds/eisenhowertalk.ogg", "eisenhowertalk", "./res/sounds/mccarthytalk.ogg", "mccarthytalk", "./res/sounds/secondredscaretalk.ogg", "secondredscaretalk", "./res/sounds/koreanwartalk.ogg", "koreanwartalk", "./res/sounds/communistchinatalk.ogg", "communistchinatalk", "./res/sounds/trumandoctrinetalk.ogg", "trumandoctrinetalk", "./res/sounds/marshallplantalk.ogg", "marshallplantalk", "./res/sounds/ahem.ogg", "ahem", "./res/sounds/leftfootstep.ogg", "leftfootstep", "./res/sounds/rightfootstep.ogg", "rightfootstep", "./res/sounds/longtelegramtalk.ogg", "longtelegramtalk", "./res/sounds/welcometalk.ogg", "welcometalk"};
 	
 	printf("loading sounds...\n");
 	// the id of the asset is based on the order in which it is defined in soundPaths
@@ -32,8 +32,8 @@ int main(int argc, char *argv[]){
 	}
 	
 	// load up textures (TODO: wrap this into a backend, possibly make it built into map)
-	const char* texturePaths[] = {"./res/textures/greyfloor.png", "greyfloor", "./res/textures/secretroomtexture.png", "secretroom", "./res/textures/MuseumDoor.png", "door", "./res/textures/framedlongtelegram.png", "framedlongtelegram", "./res/textures/berlinwall.png", "berlinwall", "./res/textures/default.png", "default", "./res/textures/floor.png", "floor"};
-	
+	const char* texturePaths[] = {"./res/textures/televiseddebate.png", "televiseddebate", "./res/textures/highwayactmap.png", "highwayactmap", "./res/textures/dullesportrait.png", "dullesportrait", "./res/textures/checkersthedog.png", "checkersthedog", "./res/textures/ikecampaign.png", "ikecampaign", "./res/textures/mccarthyportrait.png", "mccarthyportrait", "./res/textures/redscarepropaganda.png", "redscarepropaganda", "./res/textures/koreanwarmap.png", "koreanwarmap", "./res/textures/chinesemedal.png", "chinesemedal", "./res/textures/marshallportrait.png", "marshall", "./res/textures/trumancartoon.png", "trumancartoon", "./res/textures/greyfloor.png", "greyfloor", "./res/textures/secretroomtexture.png", "secretroom", "./res/textures/MuseumDoor.png", "door", "./res/textures/framedlongtelegram.png", "framedlongtelegram", "./res/textures/berlinwall.png", "berlinwall", "./res/textures/default.png", "default", "./res/textures/floor.png", "floor"};
+	 
 	printf("loading textures...\n");
 	// the id of the asset is based on the order in which it is defined in soundPaths
 	for(int i = 0; i < sizeof(texturePaths)/sizeof(char*); i += 2){
@@ -47,11 +47,13 @@ int main(int argc, char *argv[]){
 	// initialize the poor engine
 	poorInit();
 	
+	// play backgorund music
 	audioPlayMusic("./res/sounds/arabesques.ogg");
 	
 	getActiveMusic()->setLoop(true);
 	getActiveMusic()->setVolume(50.0f);
 	
+	// play opening talk sequence
 	audioPlaySound(getSoundAsset("welcometalk"));
 	
 	long frame = 0;
