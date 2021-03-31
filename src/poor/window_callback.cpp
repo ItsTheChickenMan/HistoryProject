@@ -68,6 +68,10 @@ void w_key(GLFWwindow* window, int key, int scancode, int action, int mods)
     camera_key_callback(key, scancode, action, mods);
 }
 
+void w_mouse_pressed(GLFWwindow* window, int button, int action, int mods){
+	camera_mouse_button_callback(button, action, mods);
+}
+
 void set_callbacks()
 {
     extern GLFWwindow* window;
@@ -80,4 +84,5 @@ void set_callbacks()
 		
 		glfwSetWindowMaximizeCallback(window, w_maximized);
     
+		glfwSetMouseButtonCallback(window, w_mouse_pressed);
 }

@@ -27,6 +27,8 @@ void w_mouse(GLFWwindow* window, double xpos, double ypos);
 
 void w_key(GLFWwindow* window, int key, int scancode, int action, int mods);
 
+void w_mouse_pressed(GLFWwindow* window, int button, int action, int mods);
+
 void set_callbacks();
 
 #endif //WINDOW_CALLBACKS_H

@@ -114,5 +114,4 @@ void graphics_maximize_callback(int maximized);
 void graphics_mouse_callback(double xpos, double ypos);
 
 void graphics_key_callback(int key, int scancode, int action, int mods);
-
 #endif

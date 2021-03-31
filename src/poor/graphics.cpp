@@ -27,6 +27,8 @@
 // Phoenix's entity management functions (wow, so small!  I wonder how he was able to write such little code, and yet do so much!  MAYBE IT'S CAUSE I USED TEMPLATES ETHAN
 static EntityManager<Render_Data> renderManager;
 
+static int g_maximized; 
+
 // lighting temp
 std::vector<Light> lights;
 std::vector<PointLight> pointLights;
@@ -323,6 +325,11 @@ int graphicsInit()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glfwSwapBuffers(window);
+		
+		glfwSwapInterval(1);
+		
     return 0;
 }
 
@@ -494,19 +501,29 @@ void graphics_maximize_callback(int maximized){
 	//const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	
 	/*if(maximized){
+		g_maximized = true;
 		glfwSetWindowMonitor(window, glfwGetPrimaryMonitor(), 0, 0, mode->width, mode->height, mode->refreshRate);
 	} else {
-		glfwSetWindowMonitor(window, NULL, 0, 0, 800, 600, mode->refreshRate);
+		g_maximized = false;
+		glfwSetWindowMonitor(window, NULL, 50, 50, 800, 600, mode->refreshRate);
+		glfwRestoreWindow(window);
 	}*/
+	
+	//glfwSwapInterval(1);
 }
 
 // TODO: This should be in a camera module
 void graphics_mouse_callback(double xpos, double ypos)
 {
-    
+			
 }
 
 void graphics_key_callback(int key, int scancode, int action, int mods)
 {
-    
+		// exit full screen
+    /*if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS && g_maximized){
+			graphics_maximize_callback(false);
+		} else if(key == GLFW_KEY_F11 && !g_maximized){
+			graphics_maximize_callback(true);
+		}*/
 }

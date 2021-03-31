@@ -125,3 +125,14 @@ void camera_key_callback(int key, int scancode, int action, int mods)
         }
     }
 }
+
+void camera_mouse_button_callback(int button, int action, int mods){
+	extern GLFWwindow* window;
+	
+	if(action == GLFW_PRESS){
+		show_cursor = false;
+		first_mouse = true;
+		
+		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	}
+}

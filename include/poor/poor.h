@@ -18,7 +18,7 @@ void poorSetCurrentMap(char* map, char* collisionMap);
 
 void poorInit(); //init function, run at start of program to get important things done
 
-void poorUpdate(std::chrono::high_resolution_clock::time_point start);
+void poorUpdate(std::chrono::high_resolution_clock::time_point start, bool printFrames);
 
 void poorEnd();
 

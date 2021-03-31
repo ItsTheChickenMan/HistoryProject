@@ -56,12 +56,12 @@ void poorInit(){
 }
 
 // start = when the update was called
-void poorUpdate(std::chrono::high_resolution_clock::time_point start){
+void poorUpdate(std::chrono::high_resolution_clock::time_point start, bool printFrames){
 	// calculate delta values
 	delta = std::chrono::duration_cast<std::chrono::duration<double>>(start - lastFrame).count();
 	lastFrame = start;
 	
-	//printf("framerate: %f\n", ((intended/delta)*60)/1000);
+	if(printFrames) printf("framerate: %f\n", ((intended/delta)*60)/1000);
 	
 	// note: is there any reason to do graphics things before networking things?
 	activeRequests.clear(); //clear update requests so that we don't parse anything twice
@@ -96,7 +96,7 @@ void poorEnd(){
 	networkingDisconnect(); //leave the server
 	graphicsEnd(); // close up graphics
 	audioStopMusic(); // stop da music
-	audioStopAllSounds(); // stop da sound
+	audioStopAllSounds(); // stop da sound	
 	terminateAllSoundAssets(); // destroy all sound assets
 	terminateAssets(); // destroy textures
 }
@@ -114,7 +114,7 @@ void poorHandleRequest(NetworkingUpdateRequest *request){
 			entity->boundingBox = createVector3(1, 3, 1);
 			entity->boundingCircle = calculateBoundingCircle(entity->boundingBox);
 			entity->entityType = PHYSICS_ENTITY_DYNAMIC;
-			entity->friction = 0.15;
+			entity->friction = 0.3;
 		}
 	
 		// don't push a render_data if it's an id request because we don't want to render ourselves
@@ -289,10 +289,10 @@ void tempParseInput(){
 	
 	double yaw = toRadians((double)camera.yaw);
 	
-	double speed = 0.016*((delta/intended)*1000);
+	double speed = 0.048*((delta/intended)*1000);
 	
 	if(	getKeyPressed(81) ){
-		speed = 0.032*((delta/intended)*1000);
+		speed = 0.1*((delta/intended)*1000);
 	}
 	
 	if ( getKeyPressed(87) ) { //W
@@ -310,12 +310,6 @@ void tempParseInput(){
 	if ( getKeyPressed(68) ){ //D
 			position.x -= sin(yaw)*speed;
 			position.z += cos(yaw)*speed;
-	}
-	if ( getKeyPressed(32) ){ //SPACE
-			//poorGetSelfEntity()->position.y += 0.01; // move up just enough to get us off of the floor
-			position.y += speed;
-	} else if( getKeyPressed(340) ){
-			position.y -= speed;
 	}
 	
 	// only send request if we have a request worth sending

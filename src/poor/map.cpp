@@ -155,7 +155,7 @@ Map parseMap(char* buffer){
 	
 	if(buffer == NULL) return map; // return an empty map if the buffer is null
 	
-	char* textureNames[] = {"televiseddebate", "highwayactmap", "dullesportrait", "checkersthedog", "ikecampaign", "mccarthyportrait", "redscarepropaganda", "koreanwarmap", "chinesemedal", "marshall", "trumancartoon", "greyfloor", "secretroom", "door", "framedlongtelegram", "berlinwall", "default", "floor"}; // this is great really good solid clean code
+	char* textureNames[] = {"gibill", "oswaldportrait", "johnsonportrait", "babyboomgraph", "levitthouses", "kandj", "museumdoor", "televiseddebate", "highwayactmap", "dullesportrait", "checkersthedog", "ikecampaign", "mccarthyportrait", "redscarepropaganda", "koreanwarmap", "chinesemedal", "marshall", "trumancartoon", "greyfloor", "secretroom", "door", "framedlongtelegram", "berlinwall", "default", "floor"}; // this is great really good solid clean code
 	
 	double objData[12]; //stream to hold object data (position.x, position.y, position.z, rotation.x, rotation.y, rotation.z, boundingBox.x, boundingBox.y, boundingBox.z, *directionalVector.x, *directionalVector.y, *directionalVector.z) * = depends on mode
 	char* texture;
