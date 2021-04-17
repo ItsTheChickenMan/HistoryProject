@@ -10,7 +10,7 @@ The exact prompt for the project reads as follows:
 It’s the year 1968 and you’re celebrating the end of America’s involvement in some of the harsher moments during the Cold War! Looking back on your life over the past years, you realize a lot has happened! Wanting to preserve these events for future generations, you want to create a museum to curiate these events for future generations to appreciate and understand...
 "
 
-Basically, I had to make a virtual museum of some form about the Cold War.  I imagine he was expecting a powerpoint or video, so I figured a virtual, walkable museum might suprise him and maybe get me that nice upper 90s grade which I desperately need.  While it's not yet graded, I'll update this README when it is.
+Basically, I had to make a virtual museum of some form about the Cold War.  I imagine he was expecting a powerpoint or video, so I figured a virtual, walkable museum might suprise him and maybe get me that nice upper 90s grade which I desperately need.  While it's not yet graded, I'll update this README when it is (update: A+!).
 
 # Project
 
